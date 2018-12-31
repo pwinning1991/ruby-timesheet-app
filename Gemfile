@@ -27,4 +27,5 @@ group :development do
 end
 
 gem 'devise', '~> 4.5'
-
+gem 'bootstrap-sass'
+gem 'jquery-rails'
