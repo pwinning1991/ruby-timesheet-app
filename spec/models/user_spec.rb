@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   before do
-    @user = User.create(email: "test1@test.com", first_name: "john", last_name: "snow", password: "asdfasdf", password_confirmation: "asdfasdf")
+    @user = FactoryGirl.create(:user)
   end
 
   describe "creation" do
@@ -22,4 +22,3 @@ RSpec.describe User, type: :model do
       expect(@user.full_name).to eq("SNOW, JOHN")
     end
   end
-end
