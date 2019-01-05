@@ -30,3 +30,4 @@ end
 gem 'devise', '~> 4.5'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
+gem 'gritter', '~> 1.2'
