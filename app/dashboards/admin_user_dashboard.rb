@@ -4,9 +4,9 @@ class AdminUserDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     posts: Field::HasMany,
     id: Field::Number,
-    email: Field::String,
+    email: Field::String.with_options(searchable: true),
     encrypted_password: Field::String,
-    password: Field::String,
+    password: Field::String.with_options(searchable: false),
     reset_password_token: Field::String,
     reset_password_sent_at: Field::DateTime,
     remember_created_at: Field::DateTime,
@@ -21,7 +21,6 @@ class AdminUserDashboard < Administrate::BaseDashboard
     :posts,
     :id,
     :email,
-    :encrypted_password,
   ].freeze
 
   SHOW_PAGE_ATTRIBUTES = [
