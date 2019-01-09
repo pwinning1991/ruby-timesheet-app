@@ -16,6 +16,8 @@ class UserDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     type: Field::String,
+    phone: Field::String,
+
   }.freeze
 
   COLLECTION_ATTRIBUTES = [
@@ -37,6 +39,7 @@ class UserDashboard < Administrate::BaseDashboard
     :created_at,
     :updated_at,
     :type,
+    :phone,
   ].freeze
 
   FORM_ATTRIBUTES = [
@@ -44,5 +47,6 @@ class UserDashboard < Administrate::BaseDashboard
     :password,
     :first_name,
     :last_name,
+    :phone,
   ].freeze
 end
