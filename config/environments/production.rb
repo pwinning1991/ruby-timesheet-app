@@ -7,7 +7,7 @@ Rails.application.configure do
   config.assets.js_compressor = :uglifier
   config.assets.compile = true
   config.serve_static_assets = true
-  config.assests.digests = true
+  config.assests.digest = true
   config.active_storage.service = :local
   config.log_level = :debug
   config.log_tags = [ :request_id ]
