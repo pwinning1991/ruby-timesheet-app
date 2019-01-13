@@ -11,10 +11,10 @@
     </p>
     <div class='row'>
       <div class='col-md-6 column'>
-        <%= link_to 'Approve', root_path, class: 'btn btn-success block' %>
+        <%= link_to 'Approve', approve_post_path(pending_approval), class: 'btn btn-success block', id: "approve_#{pending_approval.id}" %>
       </div>
       <div class='col-md-6 column'>
-        <%= link_to 'Deny', root_path , class: 'btn btn-warning block'%>
+        <%= link_to 'Review', edit_post_path(pending_approval) , class: 'btn btn-warning block'%>
       </div>
     </div>
   </div>
