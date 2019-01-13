@@ -6,8 +6,8 @@ Rails.application.configure do
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
   config.assets.js_compressor = :uglifier
   config.assets.compile = true
+  config.assets.digest = true
   config.serve_static_assets = true
-  config.assests.digest = true
   config.active_storage.service = :local
   config.log_level = :debug
   config.log_tags = [ :request_id ]
