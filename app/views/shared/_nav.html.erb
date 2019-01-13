@@ -12,7 +12,7 @@
     </li>
     <%= render 'shared/audit_log_tab' if policy(AuditLog).index? %>
     <li class="nav-item <%= active?(new_post_path) %>">
-      <%= link_to "Add New Time Entry", new_post_path, id: 'new_post_from_nav' %>
+      <%= link_to "Request Overtime", new_post_path, id: 'new_post_from_nav' %>
     </li>
     <li class="nav-item dropdown pull-right">
        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown">Options</a>
