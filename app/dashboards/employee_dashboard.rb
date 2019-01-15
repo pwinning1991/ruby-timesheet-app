@@ -16,17 +16,20 @@ class EmployeeDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     phone: Field::String,
+    ssn: Field::Number.with_options(searchable: true),
+    company: Field::String,
   }.freeze
 
   COLLECTION_ATTRIBUTES = [
     :posts,
-    :id,
     :email,
+    :ssn,
   ].freeze
 
   SHOW_PAGE_ATTRIBUTES = [
     :posts,
-    :id,
+    :ssn,
+    :company,
     :email,
     :encrypted_password,
     :reset_password_token,
@@ -41,10 +44,12 @@ class EmployeeDashboard < Administrate::BaseDashboard
   ].freeze
 
   FORM_ATTRIBUTES = [
+    :ssn,
     :email,
     :password,
     :first_name,
     :last_name,
+    :company,
     :phone,
   ].freeze
 
