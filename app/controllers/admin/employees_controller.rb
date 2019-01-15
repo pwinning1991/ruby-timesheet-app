@@ -1,4 +1,4 @@
 module Admin
-  class EmployeeController < Admin:ApplicationController
+  class EmployeesController < Admin::ApplicationController
   end
 end
