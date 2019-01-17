@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'navigate' do
   let(:user) { FactoryGirl.create(:user) }
   let(:post) do
-    Post.create(date: Date.today, rationale: "Rationale", user_id: user.id, daily_hours: 3.5)
+    Post.create(date: Date.today, work_performed: "Rationale", user_id: user.id, daily_hours: 3.5)
   end
   before do
     login_as(user, :scope => :user)
@@ -31,7 +31,7 @@ describe 'navigate' do
 
     it "has a scope that only post creators can see thier posts" do
       other_user = User.create(first_name: 'non', last_name: 'auhtorized'  , email: 'nonauth@example.com' , password: 'asdfasdf', password_confirmation: 'asdfasdf', phone: '1234567890')
-      post_from_other_user = Post.create(date: Date.today, rationale: "This post shouldn't be seen", user_id: other_user.id, daily_hours: 3.5)
+      post_from_other_user = Post.create(date: Date.today, work_performed: "This post shouldn't be seen", user_id: other_user.id, daily_hours: 3.5)
       visit posts_path
       expect(page).to_not have_content(/This post shouldn't be seen/)
 
@@ -52,7 +52,7 @@ describe 'navigate' do
       logout(:user)
       delete_user = FactoryGirl.create(:user)
       login_as(delete_user, :scope => :user)
-      post_to_delete = Post.create(date: Date.today, rationale: 'asdfasdf', user_id: delete_user.id, daily_hours: 4.0)
+      post_to_delete = Post.create(date: Date.today, work_performed: 'asdfasdf', user_id: delete_user.id, daily_hours: 4.0)
       visit posts_path
       click_link("delete_post_#{post_to_delete.id}_from_index")
       expect(page.status_code).to eq(200)
@@ -70,7 +70,7 @@ describe 'navigate' do
 
   	it 'can be created from new form page' do
       fill_in 'post[date]', with: Date.today
-      fill_in 'post[rationale]', with: "Some rationale"
+      fill_in 'post[work_performed]', with: "Some work_performed"
       fill_in 'post[daily_hours]', with: 4.5 
       expect {click_on "Save" }.to change(Post, :count).by(1)
 
@@ -78,11 +78,11 @@ describe 'navigate' do
 
     it 'will have a user associated it' do
       fill_in 'post[date]', with: Date.today
-      fill_in 'post[rationale]', with: "User Association"
+      fill_in 'post[work_performed]', with: "User Association"
       fill_in 'post[daily_hours]', with: 7.5 
       click_on "Save"
 
-      expect(User.last.posts.last.rationale).to eq("User Association")
+      expect(User.last.posts.last.work_performed).to eq("User Association")
     end
   end
 
@@ -91,7 +91,7 @@ describe 'navigate' do
       visit edit_post_path(post)
 
       fill_in 'post[date]', with: Date.today
-      fill_in 'post[rationale]', with: "Edited content"
+      fill_in 'post[work_performed]', with: "Edited content"
       click_on "Save"
 
       expect(page).to have_content("Edited content")
